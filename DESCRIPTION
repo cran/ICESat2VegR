@@ -1,0 +1,100 @@
+Package: ICESat2VegR
+Type: Package
+Title: ICESat-2 Data Analysis for Land and Vegetation
+Version: 0.0.1
+Authors@R: c( person("Carlos Alberto", "Silva", email = "c.silva@ufl.edu", role = c("aut", "cph", "cre")),
+           person("Caio", "Hamamura", email = "caiohamamura@gmail.com", role = c("aut", "cph")),
+           person("Cesar", "Alvites", email = "c.alvitesdiaz@ufl.edu", role = c("aut", "ctb")),
+            person("Alexander J.", "Gaskins", email = "alexandergaskins@ufl.edu", role = c("aut", "ctb")),
+            person("Sunil", "Arya", role = c("ctb", "cph"), comment = "Author of the bundled ANN library (src/)"),
+            person("David", "Mount", role = c("ctb", "cph"), comment = "Author of the bundled ANN library (src/)"),
+            person(given = "University of Maryland", role = "cph", comment = "Copyright holder of the bundled ANN library (src/)"),
+            person("Chuck", "Gantz", role = "ctb", comment = "Author of the lat/long to UTM conversion algorithm used in R/utmTools.R"),
+            person("Cole", "Krehbiel", role = "ctb", comment = "Author of the NASA data download routine adapted in R/ATLAS_dataDownload.R")
+ )
+Description: Provides tools for downloading, reading, processing, visualizing,
+           and exporting NASA's ICESat-2 ATL03 (Global Geolocated Photon
+           Data) and ATL08 (Land and Vegetation Height) products. Supports
+           photon- and segment-level analysis, spatial sampling, gridding,
+           statistical and machine-learning modeling, and integration with
+           'Google Earth Engine' (<https://earthengine.google.com/>) for
+           wall-to-wall mapping of vegetation structure and other land
+           attributes.
+Depends: R (>= 4.1.0)
+Imports: curl, data.table, sf, fs, getPass, geojsonsf, googledrive,
+        googleCloudStorageR, grDevices, jsonlite, httr2, magrittr,
+        mathjaxr, methods, Rcpp, Rdpack, R6, randomForest, reticulate,
+        terra, dplyr, servr, stringr, xml2
+Encoding: UTF-8
+URL: https://github.com/carlos-alberto-silva/ICESat2VegR
+BugReports: https://github.com/carlos-alberto-silva/ICESat2VegR/issues
+NeedsCompilation: yes
+RdMacros: Rdpack, mathjaxr
+BuildManual: TRUE
+Suggests: chromote, devtools, ggplot2, grid, gridExtra, hdf5r,
+        htmlwidgets, knitr, leaflet, leafsync, lwgeom, mapview, png,
+        rmarkdown, rstudioapi, signal, stars, testthat (>= 3.0.0),
+        webshot, viridis, withr
+LinkingTo: Rcpp
+SystemRequirements: - GDAL (>= 3.0.0) - PROJ (>= 6.0.0) - HDF5 (>=
+        1.8.13)
+Collate: 'ANNIndex.R' 'lazy_applier.R'
+        'ATL03_ATL08_compute_seg_attributes_dt_segStat.R' 'utmTools.R'
+        'lasTools.R' 'ATL03_ATL08_photons_attributes_dt_LAS.R'
+        'ATL03_ATL08_photons_attributes_dt_clipBox.R'
+        'ATL03_ATL08_photons_attributes_dt_clipGeometry.R'
+        'ATL03_ATL08_photons_attributes_dt_gridStat.R'
+        'ATL03_ATL08_photons_attributes_dt_join.R'
+        'ATL03_ATL08_photons_attributes_dt_polyStat.R'
+        'ATL03_ATL08_photons_seg_dt_fitground.R'
+        'ATL03_ATL08_photons_seg_dt_height_normalize.R'
+        'ATL03_ATL08_seg_attributes_dt_clip.R'
+        'ATL03_ATL08_seg_cover_dt_compute.R'
+        'ATL03_ATL08_segment_create.R' 'ATL03_h5_clip.R' 'clipTools.R'
+        'ATL03_h5_clipBox.R' 'ATL03_h5_clipGeometry.R'
+        'ATL03_photons_attributes_dt.R'
+        'ATL03_photons_attributes_dt_LAS.R'
+        'ATL03_photons_attributes_dt_clipBox.R'
+        'ATL03_photons_attributes_dt_clipGeometry.R' 'class_tools.R'
+        'class.icesat2.R' 'zzz.R' 'ATL03_read.R'
+        'ATL03_seg_metadata_dt.R' 'ATL08_read.R' 'ATL08_h5_clip.R'
+        'ATL08_h5_clipBox.R' 'ATL08_h5_clipGeometry.R'
+        'ATL08_photons_attributes_dt.R'
+        'ATL08_photons_attributes_dt_LAS.R' 'ATL08_seg_attributes_dt.R'
+        'ATL08_seg_attributes_dt_LAS.R'
+        'ATL08_seg_attributes_dt_clipBox.R'
+        'ATL08_seg_attributes_dt_clipGeometry.R'
+        'ATL08_seg_attributes_dt_gridStat.R'
+        'ATL08_seg_attributes_dt_polyStat.R'
+        'ATL08_seg_attributes_h5_gridStat.R' 'ATLAS_dataDownload.R'
+        'ATLAS_dataFinder.R' 'earthaccess.R' 'ATLAS_dataFinder_cloud.R'
+        'ATLAS_dataFinder_direct.R' 'ICESat2VegR-package.R'
+        'ICESat2VegR_configure.R' 'addEEImage.R' 'argParse.R'
+        'class.icesat2.h5ds_cloud.R' 'class.icesat2.h5_cloud.R'
+        'class.icesat2.h5ds_local.R' 'class.icesat2.h5_local.R'
+        'clip.R' 'ee_build_AlphaEarth_embedding_terrain_stack.R'
+        'ee_build_hls_s1c_terrain_stack.R' 'extract.R' 'fit_metrics.R'
+        'fit_model.R' 'gdalBindings.R' 'gee-base-feature.R'
+        'gee-base-list.R' 'gee-base-number.R' 'gee-base.R'
+        'gee-search.R' 'globals.R' 'map_tools.R' 'model_tools.R'
+        'plot_icesat2_orbit_animation.R' 'predict_h5.R'
+        'rasterize_h5.R' 'rgt_extract.R' 'sample.R' 'to_vect.R'
+        'varSel.R' 'vect_as_ee.R'
+License: GPL (>= 3)
+Config/roxygen2/version: 8.1.0
+Packaged: 2026-09-10 17:24:06 UTC; carlo
+Author: Carlos Alberto Silva [aut, cph, cre],
+  Caio Hamamura [aut, cph],
+  Cesar Alvites [aut, ctb],
+  Alexander J. Gaskins [aut, ctb],
+  Sunil Arya [ctb, cph] (Author of the bundled ANN library (src/)),
+  David Mount [ctb, cph] (Author of the bundled ANN library (src/)),
+  University of Maryland [cph] (Copyright holder of the bundled ANN
+    library (src/)),
+  Chuck Gantz [ctb] (Author of the lat/long to UTM conversion algorithm
+    used in R/utmTools.R),
+  Cole Krehbiel [ctb] (Author of the NASA data download routine adapted
+    in R/ATLAS_dataDownload.R)
+Maintainer: Carlos Alberto Silva <c.silva@ufl.edu>
+Repository: CRAN
+Date/Publication: 2026-09-11 07:10:09 UTC

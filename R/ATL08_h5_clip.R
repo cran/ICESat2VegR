@@ -1,0 +1,151 @@
+#' @include class.icesat2.R ATL08_read.R
+#' @import data.table
+ATL08_h5_clip <- function(
+    atl08,
+    output,
+    clip_obj,
+    landSegmentsMask_fn,
+    beam = c("gt1r", "gt2r", "gt3r", "gt1l", "gt2l", "gt3l"),
+    additional_groups = c("orbit_info")) {
+  dataset.rank <- dataset.dims <- name <- NA
+
+  # Create a new HDF5 file
+  newFile <- hdf5r::H5File$new(output, mode = "w")
+
+  if (!"orbit_info" %in% additional_groups) {
+    additional_groups <- c("orbit_info", additional_groups)
+  }
+  all_groups <- c(beam, additional_groups)
+  all_groups <- intersect(all_groups, atl08$ls_groups())
+  starts_with_regex <- paste0("^(", paste(all_groups, collapse = "|"), ")")
+
+  # Create all groups
+  groups <- atl08$ls_groups(recursive = TRUE)
+  groups <- grep(starts_with_regex, groups, value = TRUE)
+
+  for (group in groups) {
+    grp <- newFile$create_group(group)
+
+    # Create all attributes within group
+    attributes <- atl08[[group]]$ls_attrs()
+    for (attribute in attributes) {
+      grp$create_attr(attribute, atl08[[group]]$attr(attribute))
+    }
+  }
+
+  # Create root attributes
+  attributes <- atl08$ls_attrs()
+  for (attribute in attributes) {
+    hdf5r::h5attr(newFile, attribute) <- atl08$attr(attribute)
+  }
+
+  non_beams_groups <- grep("^gt[1-3][rl]", groups, value = TRUE, invert = TRUE)
+
+  for (non_beam_group in non_beams_groups) {
+    datasets_dt <- atl08[[non_beam_group]]$dt_datasets()
+    for (dataset in datasets_dt$name) {
+      ds_dims <- length(atl08[[non_beam_group]][[dataset]]$dims)
+      args <- list(atl08[[non_beam_group]][[dataset]])
+      alist_text <- gettextf("alist(%s)", paste0(rep(",", max(0, ds_dims - 1)), collapse = ""))
+      args <- c(args, eval(parse(text = alist_text)))
+      ds_data <- do.call("[", args)
+      copyDataset(
+        beam = atl08[[non_beam_group]],
+        updateBeam = newFile[[non_beam_group]],
+        dataset = dataset,
+        data = ds_data,
+        NULL
+      )
+    }
+  }
+  # Get all beams
+  beams <- intersect(beam, atl08$beams)
+
+
+  nBeam <- 0
+  nBeams <- length(beams)
+
+  # Loop the beams
+  # beamName <- beams[nBeam + 1]
+  for (beamName in beams) {
+    nBeam <- nBeam + 1
+    message(sprintf("Clipping %s (%d/%d)", beamName, nBeam, nBeams))
+
+    # Get the reference beam
+    beam <- atl08[[beamName]]
+    if (beam$exists('land_segments/latitude') == FALSE) {
+      next
+    }
+
+    # Get land segments mask
+    landSegmentsMask <- landSegmentsMask_fn(beam, clip_obj)
+
+    if (length(landSegmentsMask) == 0) {
+      next
+    }
+
+
+    # Get photons for the masked land segments
+    ph_ndx_beg <- beam[["land_segments/ph_ndx_beg"]][landSegmentsMask]
+    n_seg_ph <- beam[["land_segments/n_seg_ph"]][landSegmentsMask]
+
+    # Create mask for photons
+    photonsMask <- unlist(
+      Vectorize(seq.default, vectorize.args = c("from", "to"))(from = ph_ndx_beg, to = ph_ndx_beg + n_seg_ph - 1)
+    )
+
+    # Get sizes of clipping datasets
+    photonsSize <- beam[["signal_photons/ph_h"]]$dims
+    segmentsSize <- beam[["land_segments/segment_watermask"]]$dims
+
+    # Get all datasets
+    datasets_dt <- beam$dt_datasets(recursive = TRUE)
+
+    # Get all types of clipping photons/segment/no cut
+    photonsCut <- datasets_dt[dataset.dims == photonsSize]$name
+
+    segmentsCut <- datasets_dt[
+      dataset.dims == segmentsSize
+    ]$name
+    segmentsCut2D <- datasets_dt[
+      grepl(segmentsSize, dataset.dims) & dataset.rank == 2
+    ]$name
+
+    allCuts <- c(photonsCut, segmentsCut, segmentsCut2D)
+
+    nonCuts <- datasets_dt[
+      !name %in% allCuts
+    ]$name
+
+
+    qtyList <- lapply(datasets_dt$dataset.dims, function(x) eval(parse(text = gsub("x", "*", x))))
+    qty <- sum(unlist(qtyList))
+
+    pb <- utils::txtProgressBar(min = 0, max = qty, style = 3)
+
+    # Do clipping and copying
+    if (length(landSegmentsMask) == 0) {
+      utils::setTxtProgressBar(pb, qty)
+      close(pb)
+      next
+    }
+
+    # Get the beam to update
+    updateBeam <- newFile[[beamName]]
+    clipByMask(beam, updateBeam, segmentsCut, landSegmentsMask, pb)
+    clipByMask2D(beam, updateBeam, segmentsCut2D, landSegmentsMask, pb)
+    clipByMask(beam, updateBeam, photonsCut, photonsMask, pb)
+    n_seg_ph_new <- updateBeam[["land_segments/n_seg_ph"]][]
+    new_ph_ndx_beg <- cumsum(c(1, utils::head(n_seg_ph_new, -1)))
+    updateBeam[["land_segments/ph_ndx_beg"]][] <- new_ph_ndx_beg
+
+    for (dataset in nonCuts) {
+      createDatasetClip(beam, updateBeam, dataset, beam[[dataset]][], pb)
+    }
+
+    close(pb)
+  }
+
+  newFile$close_all()
+  ATL08_read(output)
+}
