@@ -97,3 +97,25 @@ test_that("joined ATL03/ATL08 photons can be segmented and summarized", {
   expect_true(inherits(clipped, "icesat2.atl03_atl08_seg_dt"))
   expect_true(nrow(clipped) <= nrow(stats20))
 })
+
+test_that("local HDF5 navigation remains valid across garbage collection", {
+  skip_if_not_installed("hdf5r")
+
+  atl03_path <- system.file("extdata", "atl03_clip.h5", package = "ICESat2VegR")
+  atl08_path <- system.file("extdata", "atl08_clip.h5", package = "ICESat2VegR")
+  skip_if(atl03_path == "" || atl08_path == "", "Bundled HDF5 fixtures are unavailable.")
+
+  atl03 <- ATL03_read(atl03_path)
+  gc()
+  atl08 <- ATL08_read(atl08_path)
+  on.exit({ close(atl03); close(atl08) }, add = TRUE)
+
+  for (i in seq_len(5)) {
+    expect_true(length(atl03[["orbit_info/orbit_number"]][]) > 0)
+    gc()
+    expect_true(length(atl08[["orbit_info/orbit_number"]][]) > 0)
+    gc()
+  }
+
+  expect_no_error(ATL03_ATL08_photons_attributes_dt_join(atl03, atl08))
+})

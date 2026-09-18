@@ -1,4 +1,4 @@
-a837c002093f857f881e6a44c2b05a99 *DESCRIPTION
+f625c3fb21322578dde11d6fd1c327f5 *DESCRIPTION
 3186c8ef84b7fb3f4f9e19e581bbfed3 *LICENSE.note
 7d97b8be1bf72057bdaa36c97b273671 *NAMESPACE
 466b461bd495322795fe783ee8c5de72 *R/ANNIndex.R
@@ -36,7 +36,7 @@ d47fd521b25c1a060a665fef0e343cc8 *R/ATL08_seg_attributes_dt_LAS.R
 373bf06de74b80303dead86885fdefc9 *R/ATL08_seg_attributes_dt_gridStat.R
 83d580adb4906d036e3a7a37cdaa8ba4 *R/ATL08_seg_attributes_dt_polyStat.R
 9fc6ea05bc243d919cd72b0403711097 *R/ATL08_seg_attributes_h5_gridStat.R
-eaec227d2b3fa97c0ddb2eaeb524b8cb *R/ATLAS_dataDownload.R
+658c02d2d7cc3b7b60c877b95bc7c6d5 *R/ATLAS_dataDownload.R
 95de04ca60ff76f1e10f38ee79265ebe *R/ATLAS_dataFinder.R
 ed1ae3877dd2721cc4e7811c56bf5b6a *R/ATLAS_dataFinder_cloud.R
 d3efffd08bfa61f2099654823ee20266 *R/ATLAS_dataFinder_direct.R
@@ -46,9 +46,9 @@ c8c45adb5b2aba9b6704bb9de40815e2 *R/addEEImage.R
 574100d5aeef23260941675d78189ff8 *R/argParse.R
 464941bae3f6c284481cefc462a1c53c *R/class.icesat2.R
 dd5266a4d0e5cff4510d2b283278bb95 *R/class.icesat2.h5_cloud.R
-b5f8fb51288c3a9f350baa397ca6d396 *R/class.icesat2.h5_local.R
+ae824586e551c3278a8300695b5c8d3e *R/class.icesat2.h5_local.R
 3be51229eac01bc35128009a1a235eab *R/class.icesat2.h5ds_cloud.R
-434c011bf06e324a51cde8b42586e221 *R/class.icesat2.h5ds_local.R
+c6ccaf2cbcd7d169b2ee9c84a81c8527 *R/class.icesat2.h5ds_local.R
 c3790344b1f2d2577061f55d79806242 *R/class_tools.R
 ee798afa33650056f5fc5b40fbda7d88 *R/clip.R
 bd8a2a973eaa5da9d1e0a7f451b3edd3 *R/clipTools.R
@@ -78,7 +78,7 @@ d1c4973b241495c67b6c9015c6c1b159 *R/to_vect.R
 867490bc748b02a4aa90f92c577a76f6 *R/utmTools.R
 fa4185e2379431f77e42b53057c0307a *R/varSel.R
 90f73482835c66a377c5636cc383674e *R/vect_as_ee.R
-afc8ed5db0007411c4d744f3f258070c *R/zzz.R
+03b70ee899b2adc8750b1226b30fa425 *R/zzz.R
 70bf1163addd5a47dd91881fca55bfa9 *README.md
 68bbcdcbaf327e7288e955b4d7ca9167 *cleanup
 868293d8f847e50fad61386e51aea6a6 *cleanup.ucrt
@@ -106,6 +106,22 @@ b5b3ca180f9c5dc364027c2fd610fe1d *inst/extdata/clip_geom.dbf
 c742bee3d4edfc2948a2ad08de1790a5 *inst/extdata/clip_geom.prj
 ce4dffb662e0250869ad8835bddab680 *inst/extdata/clip_geom.shp
 bde6add33e0a2ca33e486b5b00a5f858 *inst/extdata/clip_geom.shx
+de5d7bc5ded30ed3195f5a72d119c8e2 *inst/proj/CH
+f6d1f275176d7cfcc5c6800ec90a1d1e *inst/proj/GL27
+1f32ebe205f6d02d65d36900c3c2cb78 *inst/proj/ITRF2000
+c7d8c679f83cf1dc94af945f7ea32d94 *inst/proj/ITRF2008
+2e2474787a993bae71b43214c9392e0e *inst/proj/ITRF2014
+46588b2077c7bc07303ae1cfd1041fc4 *inst/proj/ITRF2020
+c6f5b2dc99ec4413a672a8b39f6e5c2d *inst/proj/deformation_model.schema.json
+8559729c3bb768f30eb672d69abf16c6 *inst/proj/nad.lst
+2b960f852dfff222d3af4d2f564efe19 *inst/proj/nad27
+48aa9b7c6de83a786d3b63267b52c6db *inst/proj/nad83
+192e88b6882daf480ec1b8f7804efbf2 *inst/proj/other.extra
+a83bd983fe612bf0b4e512869a51b870 *inst/proj/proj.db
+59ff152890871f0806929938897047ca *inst/proj/proj.ini
+b36c7ce9824d274cfd711a16ef45d221 *inst/proj/projjson.schema.json
+b3d165f2997c4a442872f315bfe4494d *inst/proj/triangulation.schema.json
+781dcf5c1e5de7fdf41b27e0cf762f76 *inst/proj/world
 5384006a9c8e00b2f01a6c478d833554 *inst/scripts/upscaling_alphaearth_workflow.R
 3e38367d8d09991c80643d8342854b0a *man/ANNIndex.Rd
 db0e3726b2fc3455303da16c1e7097e3 *man/ATL03_ATL08_compute_seg_attributes_dt_segStat.Rd
@@ -211,7 +227,7 @@ d2b07bc63b049b6d51cc4a2a46a7ac86 *man/dot-write_u1.Rd
 dd93cc08619e52813d67acc7d11b654f *man/dot-write_u4.Rd
 bb3dc3cc61f60cca7e0c6ada4b7192c6 *man/dt_to_las.Rd
 92aea4bea501a18c63e436b3f46d5eab *man/earthaccess.Rd
-05493f7236cbb5b5319a8fcc4e39e4e0 *man/earthdata_login.Rd
+550f7f7e549e633fc99427e07b0dc347 *man/earthdata_login.Rd
 f32773cc21c9e218db146e60c8b565fd *man/ee.Rd
 6848ba64a935d5491232a74e376fea19 *man/ee_build_AlphaEarth_embedding_terrain_stack.Rd
 2c4cd3876bce8919f550b76392353780 *man/ee_build_hls_s1c_terrain_stack.Rd
@@ -294,6 +310,8 @@ bae12b527ba0d8d5f88ba5cdb807aa3e *src/ANNIndex.h
 08d0d961ae7e0a84e1f1d772ade074ad *src/IndexInterface.cpp
 0efe0d9db0932855451bc4b5258c22e0 *src/IndexInterface.h
 75832b53d49ca3da21169be46fdff29c *src/Makevars.in
+6c5c259465c35c795c1a44e90c93562b *src/Makevars.ucrt
+680b1ad83cc3ea5172b419ddbd3e66e4 *src/Makevars.ucrt.in
 b3e7a18acefe2153e275476a8cabfb12 *src/RcppExports.cpp
 581b55d86ec8bb94d028e69f0b95d44f *src/bd_fix_rad_search.cpp
 10d404510331667b3d9b6208d7e28ece *src/bd_pr_search.cpp
@@ -333,5 +351,5 @@ d7ba6bba92cf9c19c942ddffd7f74691 *tests/testthat/test-e2e-earthdata.R
 1d86f0fc725793e670197905db7c86c1 *tests/testthat/test-e2e-gee.R
 9999ea641780557ee37bbe6e30478a09 *tests/testthat/test-e2e-readme-local.R
 9cafab40b2b8ed18a3171794785e3714 *tests/testthat/test-extract.R
-ae547d81cbe78aeccf6be2f244296161 *tests/testthat/test-integration-local.R
+ff80224e59e5a42c1fa50a33b9bf8b42 *tests/testthat/test-integration-local.R
 11d32ca2595541fdd97609c7db08cd94 *tests/testthat/test-spatial.R

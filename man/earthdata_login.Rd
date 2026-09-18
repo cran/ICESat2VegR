@@ -32,7 +32,7 @@ The function will:
 \item \code{EARTHDATA_USERNAME}
 \item \code{EARTHDATA_PASSWORD}
 }
-\item Set the \code{NETRC} environment variable for the active Python session
+\item Set the \code{NETRC} environment variable for the current R process
 }
 
 Credentials are written in standard \code{.netrc} format:
@@ -46,9 +46,9 @@ If credentials are not found in environment variables and the
 package \strong{getPass} is available, the user is prompted securely.
 Otherwise, an error is thrown.
 
-The function also updates the \code{NETRC} environment variable inside
-the active Python session via \strong{reticulate}, ensuring compatibility
-with Python libraries such as \code{earthaccess}.
+The function also sets the \code{NETRC} environment variable for the current
+R process. Python libraries such as \code{earthaccess} inherit this setting
+when they are initialized.
 }
 \seealso{
 \href{https://urs.earthdata.nasa.gov}{NASA Earthdata Login}
