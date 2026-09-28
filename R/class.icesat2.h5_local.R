@@ -60,17 +60,11 @@ ICESat2.h5_local <- R6::R6Class("ICESat2.h5_local", list(
       self$h5 <- h5
     }
     prepend_class(self, "icesat2.h5")
-    # Only the wrapper that opened the file owns its HDF5 identifier.
-    # Sub-group wrappers deliberately have no finalizer: hdf5r manages those
-    # borrowed identifiers, and closing one from a delayed R finalizer can
-    # invalidate an identifier that HDF5 has since reused.
-    if (owns_file) {
-      reg.finalizer(self, function(e) {
-        if (!is.null(e$h5)) {
-          try(e$h5$close_all(), silent = TRUE)
-        }
-      }, onexit = TRUE)
-    }
+    # Do not register wrapper finalizers for HDF5 objects. hdf5r owns and
+    # finalizes the underlying identifiers. A delayed wrapper finalizer that
+    # calls close_all() can otherwise close identifiers belonging to a newer
+    # file after HDF5 has reused them. Users can still close files explicitly
+    # with close(), and hdf5r handles files that become unreachable.
   },
   #' @description Lists the groups and datasets that are within current group
   #'

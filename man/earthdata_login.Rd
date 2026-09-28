@@ -32,7 +32,7 @@ The function will:
 \item \code{EARTHDATA_USERNAME}
 \item \code{EARTHDATA_PASSWORD}
 }
-\item Set the \code{NETRC} environment variable for the current R process
+\item Set the \code{NETRC} environment variable for the active Python session
 }
 
 Credentials are written in standard \code{.netrc} format:

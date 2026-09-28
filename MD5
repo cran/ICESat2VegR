@@ -1,4 +1,4 @@
-f625c3fb21322578dde11d6fd1c327f5 *DESCRIPTION
+c86a7631d5b027ec191c1d928aa626eb *DESCRIPTION
 3186c8ef84b7fb3f4f9e19e581bbfed3 *LICENSE.note
 7d97b8be1bf72057bdaa36c97b273671 *NAMESPACE
 466b461bd495322795fe783ee8c5de72 *R/ANNIndex.R
@@ -7,7 +7,7 @@ f625c3fb21322578dde11d6fd1c327f5 *DESCRIPTION
 e04b3253d22a82ef9422a1bdc543c453 *R/ATL03_ATL08_photons_attributes_dt_clipBox.R
 3b305418866f1e370936382f2fe4ed1b *R/ATL03_ATL08_photons_attributes_dt_clipGeometry.R
 4a353b4963c696b3ef0174857fdaa40e *R/ATL03_ATL08_photons_attributes_dt_gridStat.R
-9e0f29beb6415c3be04cc1cc69fb21e4 *R/ATL03_ATL08_photons_attributes_dt_join.R
+02b4b160fd8ae2ec9dc79ef82341fa68 *R/ATL03_ATL08_photons_attributes_dt_join.R
 93d64f330cab106e870309269238407e *R/ATL03_ATL08_photons_attributes_dt_polyStat.R
 7644849f6466ec80e74db6c8ddec4b13 *R/ATL03_ATL08_photons_seg_dt_fitground.R
 3be7000cf6b8c3b64767f11788d54310 *R/ATL03_ATL08_photons_seg_dt_height_normalize.R
@@ -36,7 +36,7 @@ d47fd521b25c1a060a665fef0e343cc8 *R/ATL08_seg_attributes_dt_LAS.R
 373bf06de74b80303dead86885fdefc9 *R/ATL08_seg_attributes_dt_gridStat.R
 83d580adb4906d036e3a7a37cdaa8ba4 *R/ATL08_seg_attributes_dt_polyStat.R
 9fc6ea05bc243d919cd72b0403711097 *R/ATL08_seg_attributes_h5_gridStat.R
-658c02d2d7cc3b7b60c877b95bc7c6d5 *R/ATLAS_dataDownload.R
+1fc356d5d528a3a08816128e1f2d887f *R/ATLAS_dataDownload.R
 95de04ca60ff76f1e10f38ee79265ebe *R/ATLAS_dataFinder.R
 ed1ae3877dd2721cc4e7811c56bf5b6a *R/ATLAS_dataFinder_cloud.R
 d3efffd08bfa61f2099654823ee20266 *R/ATLAS_dataFinder_direct.R
@@ -46,9 +46,9 @@ c8c45adb5b2aba9b6704bb9de40815e2 *R/addEEImage.R
 574100d5aeef23260941675d78189ff8 *R/argParse.R
 464941bae3f6c284481cefc462a1c53c *R/class.icesat2.R
 dd5266a4d0e5cff4510d2b283278bb95 *R/class.icesat2.h5_cloud.R
-ae824586e551c3278a8300695b5c8d3e *R/class.icesat2.h5_local.R
+dddd0b0d130b4249499e00998b8b8f91 *R/class.icesat2.h5_local.R
 3be51229eac01bc35128009a1a235eab *R/class.icesat2.h5ds_cloud.R
-c6ccaf2cbcd7d169b2ee9c84a81c8527 *R/class.icesat2.h5ds_local.R
+2cb728e2a25a42cc5a2c730b510262d5 *R/class.icesat2.h5ds_local.R
 c3790344b1f2d2577061f55d79806242 *R/class_tools.R
 ee798afa33650056f5fc5b40fbda7d88 *R/clip.R
 bd8a2a973eaa5da9d1e0a7f451b3edd3 *R/clipTools.R
@@ -58,7 +58,7 @@ f75232d8c5ed667e6bb3bc9ee6584d28 *R/ee_build_hls_s1c_terrain_stack.R
 163b969b96d1b8458a41c08ad581dd67 *R/extract.R
 0b16720b420b79b9419a5ad59f0e188c *R/fit_metrics.R
 1e80e963ded29ae4e821af22a4b1bd78 *R/fit_model.R
-cd63769908f165594cd06a37f50cb15a *R/gdalBindings.R
+0a6c75014e12a2080d1ca5a80028b34c *R/gdalBindings.R
 0c0943ed57f028f6c32aa1bf5de6e779 *R/gee-base-feature.R
 9ef448efb5a1939df8ac71954587186a *R/gee-base-list.R
 ec098a780259361ccd16239c0912454d *R/gee-base-number.R
@@ -70,7 +70,7 @@ ec0b3cf62e8af30d61a99804b7988dcb *R/globals.R
 40197a2527c6326b8ce2307bae2e57b1 *R/map_tools.R
 802b0d86e15e7df4e80584d7b409111d *R/model_tools.R
 6f1904397283b6934edf2b26392ab62e *R/plot_icesat2_orbit_animation.R
-7d6f73d9cb324c4f3f11ea69deb0b88d *R/predict_h5.R
+72157542b2c67ee0aeb0cccdb6d223e2 *R/predict_h5.R
 44cf362a854a49223daa4a08417c5b0d *R/rasterize_h5.R
 f782426a95767f5a4ad3d05931b32ad8 *R/rgt_extract.R
 830256dd023ecaade0ce9e562c1bd047 *R/sample.R
@@ -78,7 +78,7 @@ d1c4973b241495c67b6c9015c6c1b159 *R/to_vect.R
 867490bc748b02a4aa90f92c577a76f6 *R/utmTools.R
 fa4185e2379431f77e42b53057c0307a *R/varSel.R
 90f73482835c66a377c5636cc383674e *R/vect_as_ee.R
-03b70ee899b2adc8750b1226b30fa425 *R/zzz.R
+d14f22174ad76c2543220c76754e7e6c *R/zzz.R
 70bf1163addd5a47dd91881fca55bfa9 *README.md
 68bbcdcbaf327e7288e955b4d7ca9167 *cleanup
 868293d8f847e50fad61386e51aea6a6 *cleanup.ucrt
@@ -227,7 +227,7 @@ d2b07bc63b049b6d51cc4a2a46a7ac86 *man/dot-write_u1.Rd
 dd93cc08619e52813d67acc7d11b654f *man/dot-write_u4.Rd
 bb3dc3cc61f60cca7e0c6ada4b7192c6 *man/dt_to_las.Rd
 92aea4bea501a18c63e436b3f46d5eab *man/earthaccess.Rd
-550f7f7e549e633fc99427e07b0dc347 *man/earthdata_login.Rd
+8524a42b03888834c748569ed43d60cd *man/earthdata_login.Rd
 f32773cc21c9e218db146e60c8b565fd *man/ee.Rd
 6848ba64a935d5491232a74e376fea19 *man/ee_build_AlphaEarth_embedding_terrain_stack.Rd
 2c4cd3876bce8919f550b76392353780 *man/ee_build_hls_s1c_terrain_stack.Rd
@@ -272,9 +272,9 @@ a8f4b46f2ab3843df39d884acf84e8e6 *man/map_view.Rd
 3445e99dfbc99d0bdc96adb44bb1a3eb *man/plot.Rd
 64e2e4e36500856c080a81c888eccf82 *man/plot.varSel.Rd
 38d2d2935a441fb990eb1475768b93a9 *man/plot_icesat2_orbit_animation.Rd
-437b19ac69b5cad2cc0ef5f709d4e6e7 *man/predict_h5-ANY-icesat2.atl03_seg_dt-character-method.Rd
-d9aef03e0e72523167315b4d623d4529 *man/predict_h5-ANY-icesat2.atl08_dt-character-method.Rd
-452ca9e8a0a10fd7f0456f7cae6f0249 *man/predict_h5.Rd
+8169640ae91d965bb15919be026b646a *man/predict_h5-ANY-icesat2.atl03_seg_dt-character-method.Rd
+7846d2d63e4236cd9d028d7ff4cff446 *man/predict_h5-ANY-icesat2.atl08_dt-character-method.Rd
+72869d358fe73378b9da7bfb612b4d2d *man/predict_h5.Rd
 0c1c34e12a279920935be5af89b03ebb *man/prepend_class.Rd
 f126d6c29502763e393ca435519be8fb *man/randomSampling.Rd
 e6e0688005b7cb410b4bb51e334bb3a5 *man/rasterSampling.Rd
@@ -351,5 +351,5 @@ d7ba6bba92cf9c19c942ddffd7f74691 *tests/testthat/test-e2e-earthdata.R
 1d86f0fc725793e670197905db7c86c1 *tests/testthat/test-e2e-gee.R
 9999ea641780557ee37bbe6e30478a09 *tests/testthat/test-e2e-readme-local.R
 9cafab40b2b8ed18a3171794785e3714 *tests/testthat/test-extract.R
-ff80224e59e5a42c1fa50a33b9bf8b42 *tests/testthat/test-integration-local.R
+d0819ced55e4b89f7d1c753f64a8a624 *tests/testthat/test-integration-local.R
 11d32ca2595541fdd97609c7db08cd94 *tests/testthat/test-spatial.R
