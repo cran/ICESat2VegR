@@ -1,7 +1,7 @@
 Package: ICESat2VegR
 Type: Package
 Title: ICESat-2 Data Analysis for Land and Vegetation
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: c( person("Carlos Alberto", "Silva", email = "c.silva@ufl.edu", role = c("aut", "cph", "cre")),
            person("Caio", "Hamamura", email = "caiohamamura@gmail.com", role = c("aut", "cph")),
            person("Cesar", "Alvites", email = "c.alvitesdiaz@ufl.edu", role = c("aut", "ctb")),
@@ -82,7 +82,7 @@ Collate: 'ANNIndex.R' 'lazy_applier.R'
         'varSel.R' 'vect_as_ee.R'
 License: GPL (>= 3)
 Config/roxygen2/version: 8.1.0
-Packaged: 2026-09-25 00:58:25 UTC; CodexSandboxOffline
+Packaged: 2026-10-06 04:09:30 UTC; CodexSandboxOffline
 Author: Carlos Alberto Silva [aut, cph, cre],
   Caio Hamamura [aut, cph],
   Cesar Alvites [aut, ctb],
@@ -97,4 +97,4 @@ Author: Carlos Alberto Silva [aut, cph, cre],
     in R/ATLAS_dataDownload.R)
 Maintainer: Carlos Alberto Silva <c.silva@ufl.edu>
 Repository: CRAN
-Date/Publication: 2026-09-28 13:30:02 UTC
+Date/Publication: 2026-10-06 12:40:02 UTC
